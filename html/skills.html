@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/skills.css">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/logo.png">
-</head>
+<script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -16,9 +16,10 @@
     <nav>
         <a href="home.html">Home</a>
         <a href="about.html">About</a>
-        <a href="skills.html" class="active">Skills</a>
+        <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
+        <button onclick="toggleDarkMode()" class="nav-btn">🌙 Dark Mode</button>
     </nav>
 </header>
 
@@ -125,7 +126,15 @@
 </div>
 
 </section>
-
+<div class="preferences-panel">
+    <h4>Preferences</h4>
+    <div class="pref-buttons">
+        <button onclick="changeBgColor()" title="Change Background">🎨 BG</button>
+        <button onclick="changeFontColor()" title="Change Text Color">🔤 Color</button>
+        <button onclick="changeFontSize()" title="Increase Font Size">A+</button>
+        <button onclick="resetPreferences()" class="reset-pref" title="Reset All">↺</button>
+    </div>
+</div>
 <footer>
     <p>&copy; 2026 Cristino Jr. M. Del Rosario</p>
 </footer>

@@ -13,6 +13,7 @@
     font-family:'Poppins',sans-serif;
     background: linear-gradient(to right, #f6f8f6, #f3fcf3, #e9fce1);
     color:#006d2c;
+    transition: background 0.3s, color 0.3s, font-size 0.3s;
 }
 
 /* ================= HEADER ================= */
@@ -24,8 +25,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #31a354; /* header color */
-    border-bottom: 2px solid #74c476; /* border color */
+    background-color: #31a354;
+    border-bottom: 2px solid #74c476;
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -38,29 +39,47 @@ nav a {
     margin: 0px; 
     text-decoration: none; 
     font-weight: 600; 
-    color: #edf8e9; /* normal link color */
+    color: #edf8e9;
     padding: 5px 5px;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
 nav {
     display: flex;
-    gap: 8px; /* mas maliit na pagitan ng bawat link */
+    gap: 8px;
+    align-items: center;
 }
 nav a:hover,
 nav a:focus {
-    background-color: #74c476; /* hover background */
+    background-color: #74c476;
     color: #edf8e9;
     outline: none;
 }
 
-/* ======= Active Page Highlight ======= */
 nav a.active {
-    background-color: #edf8e9; /* highlight background */
-    color: #31a354;            /* active text color */
+    background-color: #edf8e9;
+    color: #31a354;
     font-weight: 700;
 }
 
+/* Nav Button (Dark Mode) */
+.nav-btn {
+    background: transparent;
+    border: 1px solid #edf8e9;
+    color: #edf8e9;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.nav-btn:hover {
+    background: #edf8e9;
+    color: #31a354;
+}
 
 /* ================= MAIN ================= */
 
@@ -77,10 +96,35 @@ main{
     margin-bottom:60px;
 }
 
+.hero-title-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
 .hero h1{
     font-size:48px;
     color:#31a354;
-    margin-bottom:15px;
+}
+
+.wave-btn {
+    background: #edf8e9;
+    border: 2px solid #74c476;
+    border-radius: 50%;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave-btn:hover {
+    background: #c7e9c0;
+    transform: rotate(20deg) scale(1.1);
 }
 
 .hero p{
@@ -105,30 +149,24 @@ main{
     background:#74c476;
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTION & GRID ================= */
 
 section{
     margin-bottom:50px;
 }
 
-/* ================= TITLES ================= */
-
 .section-title{
     font-size:32px;
     text-align:center;
-    margin-bottom:40px; /* 10px extra spacing */
+    margin-bottom:40px;
     color:#31a354;
 }
-
-/* ================= GRID ================= */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:30px;
 }
-
-/* ================= CARDS ================= */
 
 .card{
     background:#edf8e9;
@@ -159,15 +197,13 @@ section{
     margin-bottom:10px;
 }
 
-/* ================= STARS ================= */
+/* ================= RATINGS ================= */
 
 .stars{
     font-size: 20px;
-    color: #fbbf24; /* can remain gold for rating */
+    color: #fbbf24;
     margin-top: 5px;
 }
-
-/* ================= PROJECT RATING ================= */
 
 .star-rating{
     height:12px;
@@ -182,7 +218,7 @@ section{
     background:#31a354;
 }
 
-/* ================= SEE MORE ================= */
+/* ================= LINKS & CONTACT ================= */
 
 .see-more{
     display:block;
@@ -196,8 +232,6 @@ section{
 .see-more:hover{
     text-decoration:underline;
 }
-
-/* ================= CONTACT ================= */
 
 .contact-section{
     text-align:center;
@@ -219,12 +253,62 @@ section{
     background:#74c476;
 }
 
+/* ================= FLOATING PREFERENCES ================= */
+.preferences-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border: 2px solid #74c476;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.preferences-panel h4 {
+    margin-bottom: 10px;
+    color: #31a354;
+    font-size: 14px;
+    text-align: center;
+}
+
+.pref-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.pref-buttons button {
+    background: #edf8e9;
+    border: 1px solid #74c476;
+    color: #31a354;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.pref-buttons button:hover {
+    background: #c7e9c0;
+}
+
+.pref-buttons button.reset-pref {
+    background: #fee0d2;
+    border-color: #fc9272;
+    color: #de2d26;
+}
+
+.pref-buttons button.reset-pref:hover {
+    background: #fcbba1;
+}
+
 /* ================= FOOTER ================= */
 footer{
     text-align:center;
-    padding:20px 10px; /* mas malaki ang footer */
+    padding:20px 10px;
     font-size:16px;
-    background:#31a354; /* strong green */
+    background:#31a354;
     color:white;
     border-top:1px solid #74c476;
 }
@@ -232,13 +316,45 @@ footer{
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
-
-.hero h1{
-font-size:36px;
+    .hero h1{ font-size:36px; }
+    main{ width:90%; }
+    .preferences-panel {
+        bottom: 10px; right: 10px; padding: 10px;
+    }
 }
 
-main{
-width:90%;
+/* ================= DARK MODE ================= */
+body.dark-mode {
+    background: #121212 !important;
+    color: #e0e0e0 !important;
 }
 
+body.dark-mode header {
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #333;
+}
+
+body.dark-mode .card, 
+body.dark-mode .preferences-panel,
+body.dark-mode .wave-btn {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card h3, 
+body.dark-mode .section-title, 
+body.dark-mode .hero h1,
+body.dark-mode .preferences-panel h4 {
+    color: #74c476;
+}
+
+body.dark-mode .pref-buttons button {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+body.dark-mode .star-rating {
+    background: #333;
 }

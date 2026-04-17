@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="../css/home.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/logo.png">
+
+<script src="../js/script.js" defer></script>
 </head>
 
 <body>
@@ -19,22 +21,24 @@
 <img src="../img/logo.png" class="logo">
 
 <nav>
-<a href="home.html" class="active">Home</a>
-<a href="about.html">About</a>
-<a href="skills.html">Skills</a>
-<a href="projects.html">Projects</a>
-<a href="contact.html">Contact</a>
+    <a href="home.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <button onclick="toggleDarkMode()" class="nav-btn">🌙 Dark Mode</button>
 </nav>
 
 </header>
 
 <main>
 
-<!-- HERO -->
-
 <section class="hero">
 
-<h1>Cristino Jr. M. Del Rosario</h1>
+<div class="hero-title-container">
+    <h1 id="hero-title">Cristino Jr. M. Del Rosario</h1>
+    <button onclick="waveHello()" class="wave-btn" title="Click me!">👋</button>
+</div>
 
 <p>
 3rd-year Computer Science student at Norzagaray College.
@@ -44,8 +48,6 @@ Passionate about UI/UX and Web Development.
 <a href="about.html" class="hero-btn">Learn More →</a>
 
 </section>
-
-<!-- SKILLS -->
 
 <section>
 
@@ -82,8 +84,6 @@ Passionate about UI/UX and Web Development.
 <a href="skills.html" class="see-more">See more →</a>
 
 </section>
-
-<!-- PROJECTS -->
 
 <section>
 
@@ -124,8 +124,6 @@ Passionate about UI/UX and Web Development.
 
 </section>
 
-<!-- CONTACT -->
-
 <section class="contact-section">
 
 <a href="contact.html" class="contact-btn">Get in Touch →</a>
@@ -134,10 +132,18 @@ Passionate about UI/UX and Web Development.
 
 </main>
 
+<div class="preferences-panel">
+    <h4>Preferences</h4>
+    <div class="pref-buttons">
+        <button onclick="changeBgColor()" title="Change Background">🎨 BG</button>
+        <button onclick="changeFontColor()" title="Change Text Color">🔤 Color</button>
+        <button onclick="changeFontSize()" title="Increase Font Size">A+</button>
+        <button onclick="resetPreferences()" class="reset-pref" title="Reset All">↺</button>
+    </div>
+</div>
+
 <footer>
-
 &copy; 2026 Cristino Jr. M. Del Rosario
-
 </footer>
 
 </body>

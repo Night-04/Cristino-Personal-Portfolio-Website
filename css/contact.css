@@ -164,3 +164,113 @@ footer {
     nav a { margin: 0 10px; }
     main { padding: 160px 20px 40px 20px; }
 }
+
+/* ================= NAV BUTTON & PREFERENCES PANEL ================= */
+.nav-btn {
+    background: transparent;
+    border: 1px solid #edf8e9;
+    color: #edf8e9;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.nav-btn:hover {
+    background: #edf8e9;
+    color: #31a354;
+}
+
+.preferences-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border: 2px solid #74c476;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.preferences-panel h4 {
+    margin-bottom: 10px;
+    color: #31a354;
+    font-size: 14px;
+    text-align: center;
+}
+
+.pref-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.pref-buttons button {
+    background: #edf8e9;
+    border: 1px solid #74c476;
+    color: #31a354;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.pref-buttons button:hover {
+    background: #c7e9c0;
+}
+
+.pref-buttons button.reset-pref {
+    background: #fee0d2;
+    border-color: #fc9272;
+    color: #de2d26;
+}
+
+.pref-buttons button.reset-pref:hover {
+    background: #fcbba1;
+}
+
+@media(max-width:768px){
+    .preferences-panel {
+        bottom: 10px; right: 10px; padding: 10px;
+    }
+}
+
+/* ================= DARK MODE OVERRIDES ================= */
+body.dark-mode {
+    background: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #333;
+}
+
+body.dark-mode .card, 
+body.dark-mode .preferences-panel,
+body.dark-mode .wave-btn {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card h3, 
+body.dark-mode .section-title, 
+body.dark-mode .hero h1,
+body.dark-mode .preferences-panel h4 {
+    color: #74c476;
+}
+
+body.dark-mode .pref-buttons button {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+body.dark-mode .star-rating {
+    background: #333;
+}

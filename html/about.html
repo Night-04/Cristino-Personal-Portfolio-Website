@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href ="../css/about.css">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/logo.png">
-</head>
+<script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -14,10 +14,11 @@
     <img src="../img/logo.png" alt="Logo" class="logo">
     <nav>
         <a href="home.html">Home</a>
-        <a href="about.html" class="active">About</a>
+        <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
-         <a href="contact.html">Contact</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="toggleDarkMode()" class="nav-btn">🌙 Dark Mode</button>
     </nav>
 </header>
 
@@ -148,8 +149,23 @@
         <p>You can view or download my resume by clicking the button below:</p>
         <a href="../img/cv.pdf" target="_blank">View / Download Resume</a>
     </section>
-</main>
 
+    <div class="secret-container" style="margin-top: 30px; padding: 20px; background: #edf8e9; border-radius: 10px; text-align: center; border: 1px dashed #31a354;">
+        <button onclick="revealSecret()" style="background: #31a354; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">
+            Reveal a Developer Secret 🤫
+        </button>
+        <p id="secret-message" style="display: none; color: #d95f0e; font-weight: bold; margin-top: 15px; font-size: 16px;"></p>
+    </div>
+</main>
+<div class="preferences-panel">
+    <h4>Preferences</h4>
+    <div class="pref-buttons">
+        <button onclick="changeBgColor()" title="Change Background">🎨 BG</button>
+        <button onclick="changeFontColor()" title="Change Text Color">🔤 Color</button>
+        <button onclick="changeFontSize()" title="Increase Font Size">A+</button>
+        <button onclick="resetPreferences()" class="reset-pref" title="Reset All">↺</button>
+    </div>
+</div>
 <footer>
     <p>&copy; 2026 Cristino Jr. M. Del Rosario</p>
 </footer>
