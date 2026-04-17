@@ -1,105 +1,131 @@
 // ==========================================
-// 1. Navigation: Persistent Dark Mode 
+// 1. Initial State & Load Fix
 // ==========================================
 
-// PAGE LOAD CHECK: This runs immediately when any page loads.
-// It checks the browser's "notepad" (localStorage) to see if dark mode was left ON.
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
+// Load saved font size or default to 16
+let currentFontSize = parseInt(localStorage.getItem("fontSize")) || 16;
+
+window.addEventListener("DOMContentLoaded", () => {
+    // 1. Apply saved preferences
+    applySavedPreferences();
+
+    // 2. REMOVE PRELOAD CLASS: This is the fix for the jitter.
+    // We wait a tiny bit to ensure settings are applied before enabling transitions.
+    setTimeout(() => {
+        document.body.classList.remove("preload");
+    }, 100);
+});
+
+function applySavedPreferences() {
+    // Apply Dark Mode (Matches the head script)
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Apply Font Size
+    document.body.style.fontSize = currentFontSize + "px";
+
+    // Apply Custom BG if saved
+    if (localStorage.getItem("customBg") === "enabled") {
+        document.body.style.background = "#d4edda";
+    }
+
+    // Apply Custom Font Colors if saved
+    if (localStorage.getItem("customColors") === "enabled") {
+        applyCustomFontColors();
+    }
 }
 
+// ==========================================
+// 2. Persistent Dark Mode
+// ==========================================
 function toggleDarkMode() {
-    // 1. Toggle the visual class
+    // Safety: Reset custom colors if turning on Dark Mode to keep it readable
+    if (!document.body.classList.contains("dark-mode")) {
+        resetColorsOnly();
+    }
+
     document.body.classList.toggle("dark-mode");
     
-    // 2. Check if the body currently has the dark mode class
     if (document.body.classList.contains("dark-mode")) {
-        // If yes, save "enabled" to the notepad
         localStorage.setItem("darkMode", "enabled");
     } else {
-        // If no, save "disabled" (or remove it) from the notepad
         localStorage.setItem("darkMode", "disabled");
     }
 }
 
 // ==========================================
-// 2. Home Page: Hand Waving Welcome
+// 3. Home Page Features
 // ==========================================
 function waveHello() {
     const title = document.getElementById("hero-title");
-    if (title) {
-        title.innerText = "Welcome to My Portfolio!";
-    }
+    if (title) title.innerText = "Welcome to My Portfolio!";
 }
 
 // ==========================================
-// 3. Home Page: Preferences Panel
+// 4. Preferences & Persistence
 // ==========================================
-let currentFontSize = 16; // Base font size
 
 function changeBgColor() {
-    document.body.style.background = "#d4edda"; // Soft green
+    // Turn off dark mode to apply custom BG
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("darkMode", "disabled");
+
+    document.body.style.background = "#d4edda";
+    localStorage.setItem("customBg", "enabled");
 }
 
 function changeFontColor() {
-    // 1. Change the general body text color
-    document.body.style.color = "#004d00"; // Dark text
-    
-    // 2. Select ALL headings on the page and change them
-    const headings = document.querySelectorAll("h1, h2, h3, h4");
-    headings.forEach(function(heading) {
-        heading.style.color = "#d95f0e"; // Orange highlight for titles
-    });
+    applyCustomFontColors();
+    localStorage.setItem("customColors", "enabled");
+}
 
-    // 3. Select ALL links on the page and change them
-    const links = document.querySelectorAll("a");
-    links.forEach(function(link) {
-        // Safety check: skip the solid buttons so their text stays readable
-        if (!link.classList.contains("hero-btn") && !link.classList.contains("contact-btn") && !link.classList.contains("nav-btn")) {
-            link.style.color = "#004d00";
-        }
-    });
+function applyCustomFontColors() {
+    document.body.style.color = "#004d00";
+    const headings = document.querySelectorAll("h1, h2, h3, h4");
+    headings.forEach(h => h.style.color = "#d95f0e");
+    
+    const links = document.querySelectorAll("a:not(.hero-btn):not(.contact-btn):not(.nav-btn)");
+    links.forEach(l => l.style.color = "#004d00");
 }
 
 function changeFontSize() {
-    currentFontSize = currentFontSize + 2; 
-    document.body.style.fontSize = currentFontSize + "px";
+    // Refinement: Cap font size at 24px so the UI doesn't break
+    if (currentFontSize < 24) {
+        currentFontSize += 2; 
+        document.body.style.fontSize = currentFontSize + "px";
+        localStorage.setItem("fontSize", currentFontSize);
+    }
+}
+
+function resetColorsOnly() {
+    document.body.style.background = ""; 
+    document.body.style.color = "";
+    document.querySelectorAll("h1, h2, h3, h4, a").forEach(el => el.style.color = "");
+    localStorage.removeItem("customBg");
+    localStorage.removeItem("customColors");
 }
 
 function resetPreferences() {
-    // Reset structural styles
-    document.body.style.background = ""; 
-    document.body.style.color = "";
-    document.body.style.fontSize = "";
-    currentFontSize = 16;
+    resetColorsOnly();
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("darkMode", "disabled");
     
-    // Reset the main title text back to your name
+    currentFontSize = 16;
+    document.body.style.fontSize = "";
+    localStorage.removeItem("fontSize");
+
     const title = document.getElementById("hero-title");
-    if (title) {
-        title.innerText = "Cristino Jr. M. Del Rosario";
-    }
-
-    // Reset ALL headings back to their original CSS color
-    const headings = document.querySelectorAll("h1, h2, h3, h4");
-    headings.forEach(function(heading) {
-        heading.style.color = ""; // Leaving it blank removes the JS inline style
-    });
-
-    // Reset ALL links back to their original CSS color
-    const links = document.querySelectorAll("a");
-    links.forEach(function(link) {
-        link.style.color = "";
-    });
+    if (title) title.innerText = "Cristino Jr. M. Del Rosario";
 }
 
 // ==========================================
-// 4. About Page: Reveal Secret
+// 5. About Page: Secret
 // ==========================================
 function revealSecret() {
     const secretText = document.getElementById("secret-message");
     if (secretText) {
-        // The witty secret is safe here!
-        secretText.innerText = "Secret: Sometimes I spend more time debugging C# Boss AI behaviors in Unity than I do actually playing games!";
+        secretText.innerText = "Secret: I built this whole persistence system because C# logic in Unity taught me that state management is king!";
         secretText.style.display = "block";
     }
 }

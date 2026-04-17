@@ -358,3 +358,12 @@ body.dark-mode .pref-buttons button {
 body.dark-mode .star-rating {
     background: #333;
 }
+
+/* Prevents the 'jitter' or flash during page load */
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}

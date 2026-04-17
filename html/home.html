@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script>
+    // Runs instantly before the page renders to prevent flashing
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.documentElement.classList.add("dark-mode");
+    }
+</script>
 <meta charset="UTF-8">
 <meta name="description" content="Formal personal portfolio website">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +19,7 @@
 <script src="../js/script.js" defer></script>
 </head>
 
-<body>
+<body class="preload">
 
 <header>
 
