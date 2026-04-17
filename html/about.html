@@ -20,7 +20,7 @@
     <img src="../img/logo.png" alt="Logo" class="logo">
     <nav>
         <a href="home.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.html" class="active">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
@@ -46,7 +46,6 @@
         Hello, my name is Cristino M. Del Rosario, and you may call me <i>Tino</i> for short. I am from Pulong Buhangin, Sta. Maria, Bulacan, and I am currently studying at Norzagaray College, taking Bachelor of Science in Computer Science. I chose this program because I have been interested in technology since high school. I am now a third-year college student, and I am happy that I am getting closer to earning my bachelor’s degree. I have a special interest in UI/UX Design and improving user experiences.
     </div>
 
-    <!-- Educational Attainment -->
     <h2 class="section-title">Educational Attainment</h2>
     <div class="education-gallery">
         <div class="edu-card">
@@ -91,7 +90,6 @@
         </div>
     </div>
 
-    <!-- Awards & Affiliations -->
     <h2 class="section-title">Awards & Affiliations</h2>
     <div class="cards-section">
         <div class="card">
@@ -110,7 +108,6 @@
         </div>
     </div>
 
-    <!-- Work Experience -->
     <h2 class="section-title">Work Experience</h2>
     <div class="cards-section">
         <div class="card">
@@ -129,7 +126,6 @@
         </div>
     </div>
 
-    <!-- Hobbies & Favorites -->
     <h2 class="section-title">Hobbies</h2>
     <div class="hobbies-favorites">
         <div class="card">
@@ -150,19 +146,19 @@
         </div>
     </div>
 
-    <!-- Resume -->
     <section class="resume-section">
         <p>You can view or download my resume by clicking the button below:</p>
         <a href="../img/cv.pdf" target="_blank">View / Download Resume</a>
     </section>
 
-    <div class="secret-container" style="margin-top: 30px; padding: 20px; background: #edf8e9; border-radius: 10px; text-align: center; border: 1px dashed #31a354;">
-        <button onclick="revealSecret()" style="background: #31a354; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">
+    <div class="secret-container">
+        <button onclick="revealSecret()" class="secret-btn">
             Reveal a Developer Secret 🤫
         </button>
-        <p id="secret-message" style="display: none; color: #d95f0e; font-weight: bold; margin-top: 15px; font-size: 16px;"></p>
+        <p id="secret-message"></p>
     </div>
 </main>
+
 <div class="preferences-panel">
     <h4>Preferences</h4>
     <div class="pref-buttons">
@@ -172,6 +168,7 @@
         <button onclick="resetPreferences()" class="reset-pref" title="Reset All">↺</button>
     </div>
 </div>
+
 <footer>
     <p>&copy; 2026 Cristino Jr. M. Del Rosario</p>
 </footer>

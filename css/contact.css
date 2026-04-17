@@ -274,3 +274,140 @@ body.dark-mode .pref-buttons button {
 body.dark-mode .star-rating {
     background: #333;
 }
+
+/* ... [Keep existing styles from contact.css] ... */
+
+/* ================= JITTER FIX ================= */
+.preload * {
+    transition: none !important;
+}
+
+/* ================= CONTACT FORM ================= */
+.form-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.form-container {
+    background: #edf8e9;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #74c476;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.form-container h3 {
+    color: #31a354;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #31a354;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #74c476;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #ffffff;
+    transition: 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #31a354;
+    box-shadow: 0 0 8px rgba(49, 163, 84, 0.2);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #31a354;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #74c476;
+    transform: translateY(-2px);
+}
+
+/* ================= DARK MODE FORM OVERRIDES ================= */
+body.dark-mode .form-container {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .form-group input, 
+body.dark-mode .form-group textarea {
+    background: #121212;
+    color: #e0e0e0;
+    border-color: #333;
+}
+
+/* ... [existing styles] ... */
+
+.form-section { margin-top: 50px; display: flex; justify-content: center; padding-bottom: 40px; }
+.form-container { 
+    background: #edf8e9; padding: 40px; border-radius: 20px; border: 1px solid #74c476;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 600px;
+}
+.form-container h3 { color: #31a354; margin-bottom: 25px; text-align: center; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #31a354; }
+.form-group input, .form-group textarea { 
+    width: 100%; padding: 12px; border: 1px solid #74c476; border-radius: 10px; font-family: inherit; 
+}
+.submit-btn { 
+    width: 100%; padding: 14px; background: #31a354; color: white; border: none; 
+    border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; 
+}
+
+/* ================= DARK MODE OVERRIDES ================= */
+body.dark-mode .contact-card, 
+body.dark-mode .form-container,
+body.dark-mode .preferences-panel {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .contact-card h3,
+body.dark-mode .form-container h3,
+body.dark-mode .form-group label {
+    color: #74c476 !important;
+}
+
+body.dark-mode .form-group input, 
+body.dark-mode .form-group textarea {
+    background: #121212;
+    color: #e0e0e0;
+    border-color: #333;
+}

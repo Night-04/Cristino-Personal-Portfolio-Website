@@ -1,3 +1,18 @@
+window.addEventListener("DOMContentLoaded", () => {
+    // Apply theme immediately
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Fix Jitter: Remove preload class after a tiny delay
+    setTimeout(() => {
+        document.body.classList.remove("preload");
+    }, 100);
+});
+
+
+/* ... [Rest of your preferences and reset functions] ... */
+
 // ==========================================
 // 1. Initial State & Load Fix
 // ==========================================
@@ -39,19 +54,10 @@ function applySavedPreferences() {
 // ==========================================
 // 2. Persistent Dark Mode
 // ==========================================
-function toggleDarkMode() {
-    // Safety: Reset custom colors if turning on Dark Mode to keep it readable
-    if (!document.body.classList.contains("dark-mode")) {
-        resetColorsOnly();
-    }
 
+function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
-    
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-    } else {
-        localStorage.setItem("darkMode", "disabled");
-    }
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
 }
 
 // ==========================================

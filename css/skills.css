@@ -265,3 +265,46 @@ body.dark-mode .pref-buttons button {
 body.dark-mode .star-rating {
     background: #333;
 }
+
+/* ... [Keep all your existing styles at the top] ... */
+
+/* ================= JITTER FIX ================= */
+.preload * {
+    transition: none !important;
+}
+
+/* ================= DARK MODE OVERRIDES ================= */
+body.dark-mode {
+    background: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #333;
+}
+
+/* Fix: Targeting .skill-card and .skill-category instead of .card */
+body.dark-mode .skill-card, 
+body.dark-mode .preferences-panel {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .skill-name, 
+body.dark-mode .skill-category, 
+body.dark-mode .page-title,
+body.dark-mode .preferences-panel h4 {
+    color: #74c476;
+}
+
+body.dark-mode .skill-desc {
+    color: #b0b0b0;
+}
+
+body.dark-mode .pref-buttons button {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #555;
+}
