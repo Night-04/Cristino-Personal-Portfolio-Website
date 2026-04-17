@@ -1,0 +1,244 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= PAGE ================= */
+
+    html,body{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(to right, #f6f8f6, #f3fcf3, #e9fce1);
+    color:#006d2c;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #31a354; /* header color */
+    border-bottom: 2px solid #74c476; /* border color */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header img.logo { 
+    height: 30px; 
+}
+
+nav a { 
+    margin: 0px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    color: #edf8e9; /* normal link color */
+    padding: 5px 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+nav {
+    display: flex;
+    gap: 8px; /* mas maliit na pagitan ng bawat link */
+}
+nav a:hover,
+nav a:focus {
+    background-color: #74c476; /* hover background */
+    color: #edf8e9;
+    outline: none;
+}
+
+/* ======= Active Page Highlight ======= */
+nav a.active {
+    background-color: #edf8e9; /* highlight background */
+    color: #31a354;            /* active text color */
+    font-weight: 700;
+}
+
+
+/* ================= MAIN ================= */
+
+main{
+    flex:1;
+    width:85%;
+    max-width:1100px;
+    margin:110px auto 40px auto;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    margin-bottom:60px;
+}
+
+.hero h1{
+    font-size:48px;
+    color:#31a354;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:600px;
+    line-height:1.6;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 36px;
+    background:#31a354;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#74c476;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    margin-bottom:50px;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+    font-size:32px;
+    text-align:center;
+    margin-bottom:40px; /* 10px extra spacing */
+    color:#31a354;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+/* ================= CARDS ================= */
+
+.card{
+    background:#edf8e9;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    border:1px solid #74c476;
+    box-shadow:0 3px 6px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    margin-bottom:5px;
+    color:#31a354;
+    font-size:18px;
+}
+
+.card img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+/* ================= STARS ================= */
+
+.stars{
+    font-size: 20px;
+    color: #fbbf24; /* can remain gold for rating */
+    margin-top: 5px;
+}
+
+/* ================= PROJECT RATING ================= */
+
+.star-rating{
+    height:12px;
+    background:#edf8e9;
+    border-radius:10px;
+    overflow:hidden;
+    margin:8px 0;
+}
+
+.star-rating-fill{
+    height:100%;
+    background:#31a354;
+}
+
+/* ================= SEE MORE ================= */
+
+.see-more{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    font-weight:600;
+    color:#31a354;
+    text-decoration:none;
+}
+
+.see-more:hover{
+    text-decoration:underline;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section{
+    text-align:center;
+    margin-top:40px;
+}
+
+.contact-btn{
+    display:inline-block;
+    padding:16px 40px;
+    background:#31a354;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    background:#74c476;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:20px 10px; /* mas malaki ang footer */
+    font-size:16px;
+    background:#31a354; /* strong green */
+    color:white;
+    border-top:1px solid #74c476;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:36px;
+}
+
+main{
+width:90%;
+}
+
+}

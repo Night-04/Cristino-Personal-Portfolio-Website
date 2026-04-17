@@ -1,0 +1,166 @@
+/* ================= INTERNAL CSS (Layout & Animations) ================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #006d2c; /* main paragraph text */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #f6f8f6, #f3fcf3, #e9fce1);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.background-shapes {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: radial-gradient(circle at 20% 30%, #31a35455 120px, transparent 250px),
+                radial-gradient(circle at 80% 70%, #74c47655 150px, transparent 300px),
+                radial-gradient(circle at 50% 90%, #bae4b355 100px, transparent 220px);
+    z-index:-1;
+    animation: floatBg 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatBg {
+    from {transform: translateY(0);}
+    to {transform: translateY(-40px);}
+}
+
+header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #31a354; /* header color */
+    border-bottom: 2px solid #74c476; /* border color */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header img.logo { 
+    height: 30px; 
+}
+
+nav a { 
+    margin: 0px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    color: #edf8e9; /* normal link color */
+    padding: 5px 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+nav {
+    display: flex;
+    gap: 8px; /* mas maliit na pagitan ng bawat link */
+}
+nav a:hover,
+nav a:focus {
+    background-color: #74c476; /* hover background */
+    color: #edf8e9;
+    outline: none;
+}
+
+/* ======= Active Page Highlight ======= */
+nav a.active {
+    background-color: #edf8e9; /* highlight background */
+    color: #31a354;            /* active text color */
+    font-weight: 700;
+}
+
+/* ================= Main ================= */
+main {
+    flex: 1;
+    padding: 110px 40px 40px 40px;
+}
+
+h1.page-title {
+    font-size: 42px;
+    margin-top: -10px;
+    margin-bottom: 5px; /*sub header color text*/
+    font-weight: 700;
+    color: #31a354; /* header/sub header color */
+    scroll-margin-top: 5px;
+}
+
+p.description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    line-height: 1.6;
+    color: #006d2c; /* main paragraph text */
+}
+
+/* ================= Contact Cards ================= */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+.contact-card {
+    flex: 1 1 220px;
+    max-width: 240px;
+    background: #edf8e9; /* container background */
+    border-radius: 20px;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #74c476; /* border color */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: #31a354; /* hover accent */
+}
+
+@keyframes fadeInUp {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+.contact-card img {
+    width: 70px; 
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: #31a354; /* card header color */
+    margin-bottom: 5px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #006d2c; /* card text */
+}
+
+/* ================= Footer ================= */
+footer {
+    position: static;
+    text-align: center;
+    padding:1px;
+    color: #fff;
+    background-color: #31a354;
+    border-top: 1px solid #74c476; /* border accent */
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 1024px) {
+    .contact-card { flex: 1 1 100%; max-width: none; }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; padding: 15px 20px; }
+    nav { margin-top: 10px; }
+    nav a { margin: 0 10px; }
+    main { padding: 160px 20px 40px 20px; }
+}

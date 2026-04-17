@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Projects | Cristino Jr. M. Del Rosario</title>
+<link rel="stylesheet" href="../css/projects.css">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/logo.png">
+</head>
+
+</head>
+<body>
+
+<header>
+    <img src="../img/logo.png" alt="Logo" class="logo">
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+         <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <h1 class="page-title">Projects</h1>
+
+    <div class="projects-container">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+            <a href="#modal1" class="project-img">
+                <img src="../img/dock.jpg" alt="DuckDuckCode">
+            </a>
+            <div class="project-content">
+                <h2>DuckDuckCode</h2>
+                <div class="project-date">March 2025</div>
+                <div class="project-description">
+                    Beginner-friendly Python learning system designed for first-year Computer Science students from different academic strands.
+                </div>
+                <div class="project-score">Programming Language</div>
+                <div class="project-description">
+                    Python, PHP, HTML and CSS
+                </div>
+                <div class="project-score">Ratings: 100%</div>
+            </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+            <a href="#modal2" class="project-img">
+                <img src="../img/adventure.png" alt="Adventure Game">
+            </a>
+            <div class="project-content">
+                <h2>Adventure to the Lost Temple</h2>
+                <div class="project-date">August 2025</div>
+                <div class="project-description">
+                    Interactive Python RPG game where players solve coding puzzles to progress through a mysterious temple.
+                </div>
+                <div class="project-score">Programming Language</div>
+                <div class="project-description">
+                    Python
+                </div>
+                <div class="project-score">Ratings: 99%</div>
+            </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card">
+            <a href="#modal3" class="project-img">
+                <img src="../img/dunut.png" alt="Ordering System">
+            </a>
+            <div class="project-content">
+                <h2>Dunkin' Ordering System</h2>
+                <div class="project-date">January 2026</div>
+                <div class="project-description">
+                    A donut ordering system with real-time total calculation and automated payment processing.
+                </div>
+                <div class="project-score">Programming Language</div>
+                <div class="project-description">
+                    Javascript, PHP, HTML and CSS
+                </div>
+                <div class="project-score">Ratings: 88%</div>
+            </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="project-card">
+            <a href="#modal4" class="project-img">
+                <img src="../img/portfolio.png" alt="Portfolio">
+            </a>
+            <div class="project-content">
+                <h2>Web Portfolio</h2>
+                <div class="project-date">March 2026</div>
+             <div class="project-description">
+                    A responsive personal portfolio website highlighting my About Me, Skills, Projects, and Contact sections.
+                </div>
+                <div class="project-score">Programming Language</div>
+                <div class="project-description">
+                    HTML and CSS
+                </div>
+                <div class="project-score">Ratings: 100%</div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Modals -->
+<div id="modal1" class="modal">
+    <a href="#"><img src="../img/dock.jpg" alt="DuckDuckCode"></a>
+</div>
+<div id="modal2" class="modal">
+    <a href="#"><img src="../img/adventure.png" alt="Adventure Game"></a>
+</div>
+<div id="modal3" class="modal">
+    <a href="#"><img src="../img/dunut.png" alt="Ordering System"></a>
+</div>
+<div id="modal4" class="modal">
+    <a href="#"><img src="../img/portfolio.png" alt="Portfolio"></a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const projectImages = document.querySelectorAll(".project-img");
+    const modals = document.querySelectorAll(".modal");
+
+    // Create close button dynamically
+    modals.forEach(modal => {
+        const closeBtn = document.createElement("span");
+        closeBtn.innerHTML = "&times;";
+        closeBtn.style.position = "absolute";
+        closeBtn.style.top = "20px";
+        closeBtn.style.right = "30px";
+        closeBtn.style.fontSize = "30px";
+        closeBtn.style.color = "#fff";
+        closeBtn.style.cursor = "pointer";
+        modal.appendChild(closeBtn);
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    });
+
+    // Open modal on click
+    projectImages.forEach((img, index) => {
+        img.addEventListener("click", (e) => {
+            e.preventDefault();
+            modals[index].style.display = "flex";
+        });
+    });
+
+    // Close when clicking outside image
+    modals.forEach(modal => {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+    // Close using ESC key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            modals.forEach(modal => modal.style.display = "none");
+        }
+    });
+
+});
+</script>
+<footer>
+    <p>&copy; 2026 Cristino Jr. M. Del Rosario</p>
+</footer>
+
+</body>
+</html>
